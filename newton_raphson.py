@@ -36,12 +36,16 @@ n = 2  #  Numero a se passar pra interacao
 vetx = []
 vety = []
 
-
+interacao = 0
 while (fx(n) > eps):
 
-    vetx.append(n)
-    n = n - fx(n) / df(n)
-    vety.append(n)
+    if df(n) != 0:                #  Adicionado o if
+        vetx.append(n)
+        n = n - fx(n) / df(n)
+        vety.append(n)
+        interacao += interacao       #  Adicionado a interacao
+
+
 
 
 print(vety)
