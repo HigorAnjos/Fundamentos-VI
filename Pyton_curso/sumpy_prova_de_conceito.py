@@ -110,3 +110,10 @@ print(aux_x)
 aux_x.pop(0)
 print(aux_x)
 
+# caso precise
+eps = 1.0
+while eps + 1 > 1:
+    eps /= 2
+
+eps *= 2
+

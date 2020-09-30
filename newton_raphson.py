@@ -7,11 +7,7 @@ import sympy as sp
 from sympy.plotting import *
 import matplotlib.pyplot as plt
 
-eps = 1.0
-while eps + 1 > 1:
-    eps /= 2
 
-eps *= 2
 
 #  sinbolo x
 x = Symbol('x')
@@ -30,11 +26,11 @@ df = lambdify(x, d,  modules=['numpy']) # df(x)
 
 
 
-# n = 0.5 # Raiz raphson 0
+n = 0.5 # Raiz raphson 0
 # n = 1 # Raiz raphson 5
 # n = 2 # Raiz raphson 3
 # n = 3.4556 # Raiz raphson 5
-#n = 3.6 #ache o 4 -> 4.1
+# n = 3.6 #ache o 4
 
 
 
@@ -64,12 +60,12 @@ yval = np.array(vety)
 grafico_val = np.linspace(-16, 15, 6000)
 #  Montar o grafico funcao
 
-#pl.plot(xval, fx(xval))
+
 
 #pl.plot(1.73205080756888, fx(1.73205080756888), 'ro')
 
 
-
+#pl.plot(xval, fx(xval), 'ro') # pontos resp
 
 pl.plot(grafico_val, fx(grafico_val))
 
