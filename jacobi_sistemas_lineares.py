@@ -1,9 +1,10 @@
 import numpy as np
 
-matriz = np.array(([1, 1],
-                   [1, -3]))
+matriz = np.array(([10, 3, -2],
+                   [2, 8, -1],
+                   [1, 1, 5]))
 
-vetorb = np.array(([3, -3]))
+vetorb = np.array(([57, 20, -4]))
 
 
 
@@ -68,6 +69,7 @@ for i in range(0, dim):
 modulo = modulo ** (1 / 2)
 # print(modulo)
 ki = 1
+#print(f"primeira interacao {x}")
 while modulo > 0.00001:
     modulo = 0
     x_anterior = x
@@ -79,5 +81,5 @@ while modulo > 0.00001:
     for i in range(0, dim):
         modulo += np.absolute(vetor[i])
     modulo = modulo ** (1 / 2)
-
+print(f"Interacoes {ki}")
 print(x)
