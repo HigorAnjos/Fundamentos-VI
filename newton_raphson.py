@@ -7,8 +7,6 @@ import sympy as sp
 from sympy.plotting import *
 import matplotlib.pyplot as plt
 
-
-# usado no for
 eps = 1.0
 while eps + 1 > 1:
     eps /= 2
@@ -31,14 +29,22 @@ df = lambdify(x, d,  modules=['numpy']) # df(x)
 #  Gardar os resultados em indice_y
 
 
-n = 1 #  Numero a se passar pra interacao 3 5 3 5
+
+# n = 0.5 # Raiz raphson 0
+# n = 1 # Raiz raphson 5
+# n = 2 # Raiz raphson 3
+# n = 3.4556 # Raiz raphson 5
+#n = 3.6 #ache o 4 -> 4.1
+
+
+
 
 vetx = []
 vety = []
 
 interacao = 0
-
-while (np.absolute(fx(n)) >= 0.00001):
+print()
+while ( np.linalg.norm(fx(n)) >= 0.0001):
 
     if df(n) != 0:                #  Adicionado o if
         vetx.append(n)
@@ -51,14 +57,14 @@ while (np.absolute(fx(n)) >= 0.00001):
 
 print(f"Interacoes {interacao}")
 
-print(vety)
+#print(vety)
 
 xval = np.array(vetx)
 yval = np.array(vety)
-grafico_val = np.linspace(-6, 6, 60)
+grafico_val = np.linspace(-16, 15, 6000)
 #  Montar o grafico funcao
 
-pl.plot(xval, fx(xval))
+#pl.plot(xval, fx(xval))
 
 #pl.plot(1.73205080756888, fx(1.73205080756888), 'ro')
 
@@ -67,10 +73,9 @@ pl.plot(xval, fx(xval))
 
 pl.plot(grafico_val, fx(grafico_val))
 
-if interacao == 0:
-    print(f"Raiz: {n}")
 
-print("Raiz da funcao {}".format(solve(fx(x))))
-print("Raiz da funcao {}".format(solve(N(fx(x)))))
-pl.tight_layout()
+
+print(f"Raiz raphson {round(vety[interacao-1])}")
+
+#print("Raiz da funcao {}".format(solve(N(fx(x)))))
 #pl.show()
