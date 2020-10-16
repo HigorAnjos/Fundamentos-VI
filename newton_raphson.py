@@ -26,11 +26,11 @@ df = lambdify(x, d,  modules=['numpy']) # df(x)
 
 
 
-n = 0.5 # Raiz raphson 0
+# n = 0.5 # Raiz raphson 0
 # n = 1 # Raiz raphson 5
 # n = 2 # Raiz raphson 3
 # n = 3.4556 # Raiz raphson 5
-# n = 3.6 #ache o 4
+n = 3.6 #ache o 4
 
 
 
@@ -40,7 +40,7 @@ vety = []
 
 interacao = 0
 print()
-while ( np.linalg.norm(fx(n)) >= 0.0001):
+while ( np.linalg.norm(fx(n)) >= 0.00001):
 
     if df(n) != 0:                #  Adicionado o if
         vetx.append(n)
@@ -57,7 +57,7 @@ print(f"Interacoes {interacao}")
 
 xval = np.array(vetx)
 yval = np.array(vety)
-grafico_val = np.linspace(-16, 15, 6000)
+grafico_val = np.linspace(-2, 6, 10000)
 #  Montar o grafico funcao
 
 
@@ -71,7 +71,7 @@ pl.plot(grafico_val, fx(grafico_val))
 
 
 
-print(f"Raiz raphson {round(vety[interacao-1])}")
+print(f"Raiz raphson {round(vety[interacao-1], 5)}")
 
 #print("Raiz da funcao {}".format(solve(N(fx(x)))))
 #pl.show()

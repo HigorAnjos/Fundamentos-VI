@@ -1,12 +1,11 @@
 import numpy as np
 
+
 matriz = np.array(([10, 3, -2],
                    [2, 8, -1],
                    [1, 1, 5]))
 
 vetorb = np.array(([57, 20, -4]))
-
-
 
 # 1x + 1y = 3
 # 1x - 3y = -3
@@ -82,4 +81,4 @@ while modulo > 0.00001:
         modulo += np.absolute(vetor[i])
     modulo = modulo ** (1 / 2)
 print(f"Interacoes {ki}")
-print(x)
+print(np.round(x, 4))

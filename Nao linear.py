@@ -1,6 +1,8 @@
 import numpy as np
 from sympy import *
 from numpy.linalg import solve
+import math
+
 
 x1 = Symbol('x1')
 x2 = Symbol('x2')
@@ -10,6 +12,7 @@ x = np.array((1, 5))
 # Partir da matriz de jacob
 fx1 = x1 + x2 - 3
 fx2 = x1**2 + x2**2 - 9
+
 
 
 f1 = lambdify(x1, fx1, modules=['numpy'])
@@ -59,7 +62,7 @@ x = x + s0
 print(f"Primeira interacao {x}")
 intecacoes = 1
 vetor_f_x = np.array((float(f1(x[0]).subs(x2, x[1])), float(f2(x[0]).subs(x2, x[1]))))
-while np.linalg.norm(vetor_f_x) >= 0.0001:
+while np.linalg.norm(vetor_f_x) >= 0.00001:
     jacobiana = np.array(([float(f1_d_x1(x[0])), float(f1_d_x2(x[1]))],
                           [float(f2_d_x1(x[0])), float(f2_d_x2(x[1]))]))
 
@@ -68,7 +71,21 @@ while np.linalg.norm(vetor_f_x) >= 0.0001:
     vetor_f_x = np.array((float(f1(x[0]).subs(x2, x[1])), float(f2(x[0]).subs(x2, x[1]))))
     intecacoes += 1
 
+##
+def truncate(number, decimals=0):
+    """
+    Returns a value truncated to a specific number of decimal places.
+    """
+    if not isinstance(decimals, int):
+        raise TypeError("decimal places must be an integer.")
+    elif decimals < 0:
+        raise ValueError("decimal places has to be 0 or more.")
+    elif decimals == 0:
+        return math.trunc(number)
 
+    factor = 10.0 ** decimals
+    return math.trunc(number * factor) / factor
+##
 
-print(f"Resposta [{round(x[0])}, {round(x[1])}] interacoes {intecacoes}")
+print(f"Resposta [{truncate(x[0], 4)}, {truncate(x[1], 4)}] interacoes {intecacoes}")
 
