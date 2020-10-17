@@ -5,7 +5,7 @@ x = Symbol('x')
 
 ponto_x = 4
 # Pn -> Polinomio de grau n
-vet_x = array ([0, 1, 2, 3, 4])
+vet_x = array([0, 1, 2, 3, 4])
 vet_y = array([32, 47, 65, 92, 132])
 
 
