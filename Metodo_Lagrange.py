@@ -36,6 +36,14 @@ print(f"Resp: {aux}")
 
 
 
+
+
+
+
+
+
+
+
 # qual e a funcao de cada L
 aux_Numerado = 1
 aux_den = 1
@@ -51,4 +59,4 @@ for k in range(len(vet_x)):
     aux_Numerado = 1
     aux_den = 1
 
-# print(l[1]) Aqui da a funcao de cada L[n]
+#print(l[1]) # Aqui da a funcao de cada L[n]
