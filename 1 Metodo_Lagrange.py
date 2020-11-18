@@ -3,10 +3,10 @@ from numpy import *
 
 x = Symbol('x')
 
-ponto_x = 4
+ponto_x = 1.4
 # Pn -> Polinomio de grau n
-vet_x = array([0, 1, 2, 3, 4])
-vet_y = array([32, 47, 65, 92, 132])
+vet_x = array([0.7, 1.2, 1.3, 1.5, 2, 2.3, 2.6])
+vet_y = array([0.043, 1.928, 2.497, 3.875, 9, 13.467, 19.176])
 
 
 def L(vet_x, vet_y, ponto_x):

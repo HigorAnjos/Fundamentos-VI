@@ -10,7 +10,7 @@ y_fx = np.array([1.221, 3.320, 4.953])
 matriz = np.zeros(shape=(len(x_valores), len(y_fx)))
 
 
-for i in range (len(x_valores)):
+for i in range(len(x_valores)):
     for j in range(len(x_valores)):
         matriz[i][j] = float(x_valores[i]**j)
 
