@@ -1,5 +1,7 @@
 from sympy import *
 from numpy import *
+from FuncoesCauchyNewton import *
+
 
 hk = 1.
 alf = 1/10
@@ -16,7 +18,7 @@ hk = alf*hk
 yk = f(x_fun+hk)
 deltak = hk**2 + (yk-t)**2
 
-while deltak >= 0.0000000000001:
+while deltak >= Epsilon():
     hk = alf * hk
     yk = f((x_fun + hk))
     deltak = hk ** 2 + (yk - t) ** 2

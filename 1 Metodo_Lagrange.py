@@ -30,6 +30,7 @@ aux = 0
 for k in range(len(vet_y)):
      aux += (vet_y[k] * l[k])
 
+
 print(f"Resp: {aux}")
 
 
