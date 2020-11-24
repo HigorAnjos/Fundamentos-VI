@@ -17,16 +17,17 @@ t = f(x_fun)
 hk = alf*hk
 yk = f(x_fun+hk)
 deltak = hk**2 + (yk-t)**2
-
+k = 1
 while deltak >= Epsilon():
     hk = alf * hk
     yk = f((x_fun + hk))
     deltak = hk ** 2 + (yk - t) ** 2
+    k+= 1
 
 D = (yk-t)/hk
 
 print(f'Resp = {round(D, 4)}')
 print(D)
-
-# resp Python -8.2 0278185039876
+print(k)
+# resp Python -8.20278185039876
 # resp geogeb -8.2027818503988

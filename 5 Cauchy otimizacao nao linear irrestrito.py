@@ -1,5 +1,6 @@
 from FuncoesCauchyNewton import *
 from sympy import *
+import numpy as np
 eps = Epsilon()
 
 x = Symbol('x')
@@ -11,16 +12,16 @@ f = 1/2*(x - 2)**2 + (y - 1)**2
 constante = 1
 Matdiff = Matrix([[diff(f.subs(y, constante))], [diff(f.subs(x, constante))]]) # vetor derivada primeira
 d = - Matdiff.subs(x, ponto_x[0]).subs(y, ponto_x[1])
-print(f'M = {Matdiff}')
-print(f'd = {d}')
+#print(f'M = {Matdiff}')
+#print(f'd = {d}')
 
 t = aureat(ponto_x, d, f)
-print(f' t = {t}')
+#print(f' t = {t}')
 
 
 ponto_x = ponto_x + t * d
 
-print(ponto_x)
+#print(ponto_x)
 k = 1
 
 
@@ -34,4 +35,5 @@ while validacao.norm() >= Epsilon():
     validacao = Matdiff.subs(x, ponto_x[0]).subs(y, ponto_x[1])
 
 
-print(f'Min = ({ponto_x[0]}, {ponto_x[1]}) iteracao = {k}')
+print(f'Cauchy Min = ({ponto_x[0]}, {ponto_x[1]}) iteracao = {k}')
+

@@ -1,4 +1,5 @@
 from sympy import *
+from FuncoesCauchyNewton import *
 import numpy as np
 x1 = Symbol('x1')
 x2 = Symbol('x2')
@@ -12,7 +13,7 @@ Matdiff = Matrix([[diff(f.subs(x2, constante))], [diff(f.subs(x1, constante))]])
 Matdiffseg = Matrix([[diff(diff(f.subs(x2, constante)).subs(x2, constante)), 0], [0, diff(diff(f.subs(x1, constante)).subs(x1, constante))]]) # Matriz quadrada derivada seg
 
 
-print(Matdiff)
+#print(Matdiff)
 d = - Matdiff.subs(x1, ponto_x[0]).subs(x2, ponto_x[1])
 t = 1
 print(f'Direcao {d}')
@@ -26,15 +27,15 @@ print(f't = {t}')
 validacao = Matdiff.subs(x1, novo_x[0]).subs(x2, novo_x[1])
 k = 1
 
-while validacao.norm() >= 0.001:
+while validacao.norm() >= Epsilon():
     d = - Matdiff.subs(x1, ponto_x[0]).subs(x2, ponto_x[1])
-    novo_x = ponto_x + 1 * d
+    novo_x = ponto_x + t * d
     validacao = Matdiff.subs(x1, novo_x[0]).subs(x2, novo_x[1])
 
 
     k = k + 1
     ponto_x = novo_x + d
-    print(f'Min = ({novo_x[0]}, {novo_x[1]}), iteracao = {k}')
+    #print(f'Min = ({novo_x[0]}, {novo_x[1]}), iteracao = {k}')
 
 
 print(f'Min = ({novo_x[0]}, {novo_x[1]}), iteracao = {k}')
