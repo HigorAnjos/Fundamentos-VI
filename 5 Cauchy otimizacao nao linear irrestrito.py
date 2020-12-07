@@ -11,9 +11,11 @@ f = 1/2*(x - 2)**2 + (y - 1)**2
 
 constante = 1
 Matdiff = Matrix([[diff(f.subs(y, constante))], [diff(f.subs(x, constante))]]) # vetor derivada primeira
+
 d = - Matdiff.subs(x, ponto_x[0]).subs(y, ponto_x[1])
+
 #print(f'M = {Matdiff}')
-#print(f'd = {d}')
+#print(f'd = {Matdiff}')
 
 t = aureat(ponto_x, d, f)
 #print(f' t = {t}')

@@ -26,8 +26,8 @@ while deltak >= Epsilon():
 
 D = (yk-t)/hk
 
-print(f'Resp = {round(D, 4)}')
-print(D)
-print(k)
+print(f'Resp = {D}')
+#print(round(D, 5))
+#print(k)
 # resp Python -8.20278185039876
 # resp geogeb -8.2027818503988
